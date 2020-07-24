@@ -966,6 +966,7 @@ $(function() {
 				html += `<div class="cat_detail">`
 					// 二级
 					$.each(menu.children, (index, menu2) => {
+						// 页面跳转后需要cat_id
 						html += `<dl class="dl_1st">`
 							html += `<dt><a href="${menu2.url ? menu2.url : './list.html?k='+menu2.keywords}">${menu2.cat_name}</a></dt>`
 							html += `<dd>`
