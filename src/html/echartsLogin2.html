@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可视化登录</title>
+    <link rel="stylesheet" href="../style/aa.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1">
+    <!-- http://www.dowebok.com/demo/2014/98/   -->
+
+    
+    <script crossorigin="anonymous" integrity="sha384-i+fXrQ+G3+h2478EWpSpIXivtKbbze+0SNOXJGizkAp6DVG/m2fE6hiWeDwskVvp" src="https://lib.baomitu.com/echarts/4.7.0/echarts.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="login animated bounceInDown" id="echarts1">
+        </div>
+    </div>
+
+    <script>
+    // window.onresize = function() {
+    //     let w = window.innerWidth || document.documentElement.clientWidth
+    //     // alert(w)
+    //     if (w <= 470) document.querySelector('html').style.fontSize = '16vw'
+    // }
+
+    // 媒体标签
+
+
+     // 基于准备好的dom，初始化echarts实例
+     const myChart = echarts.init(document.getElementById('echarts1'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    window.addEventListener("resize",function(){
+        myChart.resize();
+    });
+    </script>
+    
+</body>
+</html>
