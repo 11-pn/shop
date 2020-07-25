@@ -797,6 +797,17 @@
 
 <script>
 $(function(){
+
+	let uname = localStorage.getItem('uname')
+	console.log(uname)
+	console.log($('.topnav_right ul li').eq(0).html());
+    if (uname)
+	{
+		$('.topnav_right ul li').eq(0).html(uname)
+	} else {
+		$('.topnav_right ul li').eq(0).html(`<li>您好，欢迎来到京西！[<a href="login.html">登录</a>] [<a href="register.html">免费注册</a>] </li>`)
+	}
+
 	// 默认页码
 	let pageno = 1
 	let pagesize = 8

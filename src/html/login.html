@@ -143,36 +143,31 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 $(function(){
-
+	
 	// 登录
-	$('.login_btn').click(function(e) {
-		// 收集数据
+	$('.login_btn').click(function(e){
 		let uname = $('input[name=username]').val()
 		let pwd = $('input[name=password]').val()
 		let captcha = $('input[name=checkcode]').val()
+		var e=e || window.event
+		e.preventDefault()
 
-		// 表单验证  jq 插件
-
-		// 发送异步请求
-		$.post('/api/v1/public/login.jsp', {uname, pwd, captcha}, res=> {
-			// console.log(res)
-			if (res.meta.state == 200)
-			{
-				// 1. H5存储
+		$.post('/api/v1/public/login.jsp',{uname,pwd,captcha},res=>{
+			// let checkbox=$('.chb')[0].checked
+			// console.log(checkbox);
+			if(res.meta.state==200){
 				localStorage.setItem('uname', res.data.uname)
 				localStorage.setItem('token', res.data.token)
-				// 2. 提示成功
 				swal({
 					title:  '登录成功',
 					text: "神龙教商城提示!",
 					icon: "success",
 					button: "确定!",
 				});
-				// 3. 跳转到首页
 				setTimeout(function() {
-					location.href = './index.html'
+					location.href = './indexmy.html'
 				}, 1000)
-			} else {
+			}else{
 				swal({
 					title:  res.meta.msg,
 					text: "神龙教商城提示!",
@@ -180,7 +175,7 @@ $(function(){
 					button: "确定!",
 				});
 			}
-		}, 'json')
+		},'json')
 	})
 })
 </script>
