@@ -142,8 +142,8 @@ $(function(){
 		return
 	}
 
-	$.get('/api/v1/cart/index.jsp', {token}, res => {
-		
+	$.get('/api/v1/cart/index.jsp', {token}, res => {	
+		console.log(res)
 		// 显示loading
 		$('.mycart table tbody').html(`<tr><td colspan="7"><img style="width:200px;height:200px;" src="../images/${loading()}" /></td></tr>`)
 
